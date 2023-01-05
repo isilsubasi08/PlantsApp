@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/plants2"
+    tools:context=".LoginActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="196dp"
+        android:alpha="0.85"
+
+        android:backgroundTint="#B097E689"
+        app:cardCornerRadius="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/sign_text"
+                android:layout_width="match_parent"
+                android:layout_height="74dp"
+                android:textColor="@color/black"
+                android:paddingLeft="40dp"
+                android:gravity="center_vertical"
+                android:text="Kayıt Ol"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="130dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginLeft="40dp"
+                android:id="@+id/imageView"
+                android:layout_width="47dp"
+                android:layout_height="103dp"
+                app:srcCompat="@drawable/mail" />
+
+
+            <EditText
+                android:hint="E-mail"
+                android:textColorHint="#42459A"
+                android:id="@+id/edittext_email"
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="240dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginLeft="40dp"
+                android:id="@+id/password_icon"
+                android:layout_width="47dp"
+                android:layout_height="77dp"
+                app:srcCompat="@drawable/key" />
+
+
+            <EditText
+                android:hint="Şifre"
+                android:textColorHint="#42459A"
+                android:id="@+id/edittext_password"
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="380dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+          <Button
+              android:layout_marginLeft="140dp"
+              android:text="Kayıt Ol"
+              android:backgroundTint="#C6030705"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+
+          </Button>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="480dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_continue"
+                android:textSize="15sp"
+                android:layout_marginLeft="60dp"
+                android:text="Zaten kaydın var ise devam et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+        </LinearLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
