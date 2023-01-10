@@ -1,4 +1,4 @@
-package com.isilsubasi.plantsapp
+package com.isilsubasi.plantsapp.ui
 
 import android.content.Intent
 import android.graphics.Typeface
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.isilsubasi.plantsapp.databinding.ActivityMainBinding
+import com.isilsubasi.plantsapp.ui.login.LoginActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
     fun setOnClickListener(){
         binding.letsButton.setOnClickListener {
-            val intent = Intent(applicationContext,LoginActivity::class.java)
+            val intent = Intent(applicationContext, LoginActivity::class.java)
             startActivity(intent)
         }
 
