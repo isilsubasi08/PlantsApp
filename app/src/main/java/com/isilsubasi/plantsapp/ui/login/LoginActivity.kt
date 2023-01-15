@@ -1,5 +1,6 @@
 package com.isilsubasi.plantsapp.ui.login
 
+import android.content.Intent
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,11 +11,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.isilsubasi.plantsapp.databinding.ActivityLoginBinding
 import com.isilsubasi.plantsapp.model.UsersResponseItem
+import com.isilsubasi.plantsapp.ui.home.HomeActivity
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private var userViewModel: UserViewModel? = null
     private var userList:List<UsersResponseItem>?=null
     private lateinit var tf1 :Typeface
 
@@ -61,7 +62,7 @@ class LoginActivity : AppCompatActivity() {
 
                 }else{
                     //formata uygun değil
-                    Log.e("isil","formata uygun degil")
+                    Toast.makeText(applicationContext,"Email formata uygun değil",Toast.LENGTH_LONG).show()
                 }
             }
 
@@ -90,8 +91,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun checkUser(it: List<UsersResponseItem>, email: String?, password: String?){
-
-        Log.e("isil-response",it.toString())
         userList= it
         var userQty:Int=1
         for (userViewModel : UsersResponseItem in userList!!){
@@ -100,6 +99,7 @@ class LoginActivity : AppCompatActivity() {
                     var userSurname : String = userViewModel.Soyadi
                     //diğer aktiviteye gönderilecek veriler
                     Toast.makeText(applicationContext,"Giriş başarılı",Toast.LENGTH_LONG).show()
+                    openNextActivity()
                 }
                 else{
                     userQty++
@@ -110,6 +110,11 @@ class LoginActivity : AppCompatActivity() {
                 }
         }
 
+    }
+
+    private fun openNextActivity(){
+        val intent = Intent(applicationContext,HomeActivity::class.java)
+        startActivity(intent)
     }
 
 
