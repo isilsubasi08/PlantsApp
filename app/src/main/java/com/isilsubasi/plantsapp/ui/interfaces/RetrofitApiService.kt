@@ -1,6 +1,7 @@
 package com.isilsubasi.plantsapp.ui.interfaces
 
 
+import com.isilsubasi.plantsapp.model.CategoryResponseItem
 import com.isilsubasi.plantsapp.model.UsersResponseItem
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -11,6 +12,9 @@ interface RetrofitApiService {
 
     @GET("Users.json")
     fun fetchData(): Call<List<UsersResponseItem>>
+
+    @GET("CategoryList.json")
+    fun fetchCategoryData() : Call<List<CategoryResponseItem>>
 
 
     companion object {

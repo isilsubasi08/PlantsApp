@@ -10,6 +10,7 @@ class UserViewModel : ViewModel(){
 
     fun callAPI() : MutableLiveData<List<UsersResponseItem>>
     {
+        //repository sınıfının callapı metodu çağrılır.
         return UserRepository().callAPI()
     }
 

@@ -78,8 +78,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun initViewModel(email : String?,password : String?){
+        //viewModel classının nesnesini oluşturduk.
         var viewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
 
+        //viewModelda bulunan callAPI metodunu burada çağırıyorum. ve livedatanın observe özelliğini kullanacağım.
         viewModel.apply {
             callAPI().observe(this@LoginActivity, Observer {
                 it.run {
@@ -91,29 +93,31 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun checkUser(it: List<UsersResponseItem>, email: String?, password: String?){
-        userList= it
-        var userQty:Int=1
-        for (userViewModel : UsersResponseItem in userList!!){
-                if(userViewModel.Email.equals(email) && userViewModel.Parola.equals(password)){
-                    var userName : String = userViewModel.Adi
-                    var userSurname : String = userViewModel.Soyadi
-                    //diğer aktiviteye gönderilecek veriler
-                    Toast.makeText(applicationContext,"Giriş başarılı",Toast.LENGTH_LONG).show()
-                    openNextActivity()
-                }
-                else{
-                    userQty++
-                    if (userQty==userList!!.size){
-                        Toast.makeText(applicationContext,"Giriş başarısız",Toast.LENGTH_LONG).show()
-                        break
-                    }
-                }
+        userList = it
+        var userQty = 1
+        var isLoggedIn = false
+
+        for (userViewModel: UsersResponseItem in userList!!) {
+            if (userViewModel.Email.equals(email) && userViewModel.Parola.equals(password)) {
+                var userName: String = userViewModel.Adi
+                // diğer aktiviteye gönderilecek veriler
+                Toast.makeText(applicationContext, "Giriş başarılı", Toast.LENGTH_LONG).show()
+                openNextActivity(userName)
+                isLoggedIn = true
+                break
+            } else {
+                userQty++
+            }
         }
 
+        if (!isLoggedIn && userQty == userList!!.size) {
+            Toast.makeText(applicationContext, "Giriş başarısız", Toast.LENGTH_LONG).show()
+        }
     }
 
-    private fun openNextActivity(){
+    private fun openNextActivity(userName:String){
         val intent = Intent(applicationContext,HomeActivity::class.java)
+        intent.putExtra("userName",userName)
         startActivity(intent)
     }
 
