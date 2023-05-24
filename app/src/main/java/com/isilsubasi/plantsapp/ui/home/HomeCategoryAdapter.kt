@@ -7,7 +7,7 @@ import com.isilsubasi.plantsapp.databinding.CategoryItemBinding
 import com.isilsubasi.plantsapp.model.CategoryResponseItem
 import com.isilsubasi.plantsapp.util.loadImage
 
-class HomeCategoryAdapter(val list: List<CategoryResponseItem>?) : RecyclerView.Adapter<HomeCategoryAdapter.MyViewHolder>() {
+class HomeCategoryAdapter(var list: List<CategoryResponseItem>?) : RecyclerView.Adapter<HomeCategoryAdapter.MyViewHolder>() {
 
 
     inner class MyViewHolder(val binding: CategoryItemBinding) : RecyclerView.ViewHolder(binding.root)
@@ -31,7 +31,15 @@ class HomeCategoryAdapter(val list: List<CategoryResponseItem>?) : RecyclerView.
         if (list == null)
             return 0;
         else
-            return  list.size
+            return  list!!.size
+    }
+
+    fun filterList(filterList: List<CategoryResponseItem>){
+
+        list=filterList
+        notifyDataSetChanged()
+
+
     }
 
 

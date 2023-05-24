@@ -32,11 +32,16 @@ class LoginActivity : AppCompatActivity() {
 
     private fun init(){
         changeFontText()
-        binding.apply {
+        val intent = Intent(applicationContext,HomeActivity::class.java)
+        startActivity(intent)
+        /*
+                binding.apply {
             buttonSingIn.setOnClickListener {
                 nullCheck()
             }
         }
+         */
+
 
     }
 
