@@ -1,0 +1,6 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#99A1AA" /> <!-- İç dolgu rengi (isteğe bağlı) -->
+    <corners android:radius="200dp" /> <!-- Yuvarlak köşe yarıçapı -->
+    <stroke android:width="2dp"
+    android:color="#000000" />
+</shape>

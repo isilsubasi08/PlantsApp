@@ -7,7 +7,8 @@ import com.isilsubasi.plantsapp.databinding.CategoryItemBinding
 import com.isilsubasi.plantsapp.model.CategoryResponseItem
 import com.isilsubasi.plantsapp.util.loadImage
 
-class HomeCategoryAdapter(var list: List<CategoryResponseItem>?) : RecyclerView.Adapter<HomeCategoryAdapter.MyViewHolder>() {
+class HomeCategoryAdapter(var list: List<CategoryResponseItem>?,
+                          var onItemClickListener: ItemClickListener) : RecyclerView.Adapter<HomeCategoryAdapter.MyViewHolder>() {
 
 
     inner class MyViewHolder(val binding: CategoryItemBinding) : RecyclerView.ViewHolder(binding.root)
@@ -25,21 +26,21 @@ class HomeCategoryAdapter(var list: List<CategoryResponseItem>?) : RecyclerView.
                 imageCategory.loadImage(list!!.get(position).CategoryImage)
             }
         }
+        holder.itemView.setOnClickListener {
+            onItemClickListener.onItemClick(position)
+        }
+
     }
 
     override fun getItemCount(): Int {
         if (list == null)
-            return 0;
+            return 0
         else
             return  list!!.size
     }
 
-    fun filterList(filterList: List<CategoryResponseItem>){
-
-        list=filterList
-        notifyDataSetChanged()
-
-
+    fun setData(filterCategory:List<CategoryResponseItem>) {
+        list = filterCategory
     }
 
 

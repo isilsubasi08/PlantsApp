@@ -2,6 +2,7 @@ package com.isilsubasi.plantsapp.util
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.isilsubasi.plantsapp.R
 
 fun ImageView.loadImage(url : String){
